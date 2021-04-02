@@ -99,20 +99,20 @@ https://github.com/Yurika-1016/team-task-app-33991.git
 - has_many :spendings
 
 ## Incomesテーブル
-|           column           |      type       |                            option                                |
-| -------------------------- | --------------- | ---------------------------------------------------------------- |
-|          category          |     integer     |             null:false, numericality: { other_than: 0 }          |
-|          price             |     integer     |           null:false ,numericality: { only_integer: true }       |
-|          user_id           |    references   |                  null:false, foreign_keys: true                  |
+|           column           |      type       |                                option                                       |
+| -------------------------- | --------------- | --------------------------------------------------------------------------- |
+|     income_category_id     |     integer     |                    null:false, numericality: { other_than: 0 }              |
+|          price             |     integer     |null:false ,numericality: { only_integer: true, greater_than_or_equal_to: 0 }|
+|          user_id           |    references   |                       null:false, foreign_keys: true                        |
 ### Association
 - belongs_to :user
 
 ## Spendingsテーブル
-|           column           |      type       |                            option                                |
-| -------------------------- | --------------- | ---------------------------------------------------------------- |
-|          category          |     integer     |             null:false, numericality: { other_than: 0 }          |
-|          price             |     integer     |           null:false ,numericality: { only_integer: true }       |
-|          user_id           |    references   |                  null:false, foreign_keys: true                  |
+|           column           |      type       |                                 option                                      |
+| -------------------------- | --------------- | --------------------------------------------------------------------------- |
+|    spending_category_id    |     integer     |                    null:false, numericality: { other_than: 0 }              |
+|          price             |     integer     |null:false ,numericality: { only_integer: true, greater_than_or_equal_to: 0 }|
+|          user_id           |    references   |                       null:false, foreign_keys: true                        |
 ### Association
 - belongs_to :user
 
