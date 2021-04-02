@@ -1,0 +1,39 @@
+body{
+  background-image: url("/images/p5554.jpeg");
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;
+}
+
+.sign_up-main{
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  background-color: rgba(255, 253, 253, 0.6);
+  border-radius:20px;
+  padding: 10px 80px;
+  text-align: center;
+}
+
+.sign_up-label{
+  color: white;
+  background-color: crimson;
+  margin-left: 5px;
+  border: 1px solid crimson;
+  font-size: 10px;
+  padding: 2px;
+  border-radius: 3px;
+}
+
+.field{
+  margin-bottom: 20px;
+}
+
+.sign_up-btn{
+  height: 40px;
+  width: 200px;
+  border: 1px solid grey;
+  background-color: bisque;
+  margin-bottom: 20px;
+
+}
