@@ -1,0 +1,29 @@
+header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 80px;
+  width: 100vw;
+  background-color: rgba(244, 227, 245, 0.75);
+}
+
+.header-main{
+  display: flex;
+  justify-content: space-between;
+  font-family: TsukuARdGothic-Regular;
+}
+
+.header-left{
+  margin: 30px;
+  font-size: larger;
+}
+
+.header-right{
+  margin: 30px;
+}
+
+.header-right-btn{
+  text-decoration: none;
+  color: black;
+  margin-left: 20px;
+}

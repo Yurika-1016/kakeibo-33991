@@ -1,0 +1,11 @@
+footer{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height:20px;
+  text-align: center;
+  background-color: rgba(244, 227, 245, 0.75);
+  font-size: 12px;
+  font-family: TsukuARdGothic-Regular;
+}
