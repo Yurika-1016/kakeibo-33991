@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 2021_04_05_065732) do
   create_table "incomes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "income_category_id", null: false
     t.integer "price", null: false
+    t.string "text"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -24,6 +25,7 @@ ActiveRecord::Schema.define(version: 2021_04_05_065732) do
   create_table "spendings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "spending_category_id", null: false
     t.integer "price", null: false
+    t.string "text"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

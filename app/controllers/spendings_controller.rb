@@ -15,6 +15,6 @@ class SpendingsController < ApplicationController
   private
 
   def spending_params
-    params.require(:spending).permit(:spending_category_id, :price).merge(user_id: current_user.id)
+    params.require(:spending).permit(:spending_category_id, :price, :text).merge(user_id: current_user.id)
   end
 end
