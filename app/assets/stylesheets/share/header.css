@@ -18,6 +18,11 @@ header{
   font-size: larger;
 }
 
+.header-title{
+  text-decoration: none;
+  color: black;
+}
+
 .header-right{
   margin: 30px;
 }
