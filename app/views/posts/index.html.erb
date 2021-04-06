@@ -1,0 +1,47 @@
+<%= render "share/header" %>
+
+<div class="post-main">
+  <div class="page-change-class">
+    <%= link_to "登録一覧", posts_path, class:"page-change-btn"%>
+    <%= link_to "月間分析", "#", class:"page-change-btn"%>
+    <%= link_to "年間分析", "#", class:"page-change-btn"%>
+  </div>
+  <div class="page-contents-all">
+    <div class="page-spending">
+      <div class="page-contents-title">
+      支出
+      </div>
+      <div class="page-contents">
+        <% @spendings.each do |spending|%>
+          <ul class="page-content">
+            <li class="post-content-list"><%= spending.created_at.strftime("%Y/%m/%d") %></li>
+            <li class="post-content-list"><%= spending.spending_category.name %></li>
+            <li class="post-content-list"><%= "#{spending.price}円" %></li>
+            <% if spending.text.present? %>
+              <li class="post-content-list"><%= spending.text%></li>
+            <% end %>
+          </ul>
+        <% end %>
+      </div>
+    </div>
+    <div class="page-income">
+      <div class="page-contents-title">
+      収入
+      </div>
+      <div class="page-contents">
+        <% @incomes.each do |income|%>
+          <ul class="page-content">
+            <li class="post-content-list"><%= income.created_at.strftime("%Y/%m/%d") %></li>
+            <li class="post-content-list"><%= income.income_category.name %></li>
+            <li class="post-content-list"><%= "#{income.price}円" %></li>
+            <% if income.text.present? %>
+              <li class="post-content-list"><%= income.text%></li>
+            <% end %>
+          </ul>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= render "share/footer" %>
