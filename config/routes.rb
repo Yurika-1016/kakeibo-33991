@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'months/index'
   get 'posts/index'
   devise_for :users
   get 'welcomes/index'
@@ -6,4 +7,5 @@ Rails.application.routes.draw do
   resources :spendings, only:[:new, :create]
   resources :incomes, only:[:new, :create]
   resources :posts, only:[:index]
+  resources :months, only:[:index]
 end
