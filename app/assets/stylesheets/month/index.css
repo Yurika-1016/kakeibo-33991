@@ -1,10 +1,25 @@
 .month-contents-all{
   display: block;
-  margin: 10px;
+  margin: 40px;
+}
+
+.month-contents-all-title{
+  text-align: center;
+  font-size: larger;
+  text-decoration: underline;
+  margin-top: 30px;
 }
 
 .month-graph-title{
   margin-bottom: 20px;
+}
+
+.month-line-graph-title{
+  margin-left: 15%;
+}
+
+.month-line_chart-content{
+  margin: 0 15%;
 }
 
 .month-contents-under{

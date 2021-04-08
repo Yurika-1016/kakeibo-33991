@@ -7,13 +7,16 @@
     <%= link_to "年間分析", "#", class:"page-change-btn"%>
   </div>
   <div class="month-contents-all">
+    <div class="month-contents-all-title">
+      <%= "#{Date.today.month}月の月間分析"%>
+    </div>
     <div class="month-line_chart">
-      <div class="month-graph-title">
+      <div class="month-line-graph-title">
       支出遷移
       </div>
       <div class="month-line_chart-content">
         <% if @spending_months.present?%>
-          <%= line_chart @spending_months.group_by_day(:created_at).sum(:price), width: "700px", height: "200px", discrete: true, ytitle: "支出金額", thousands: "," %>
+          <%= area_chart @spending_months.group_by_day(:created_at).sum(:price), width: "800px", height: "200px", discrete: true, ytitle: "支出金額", thousands: "," %>
         <% else %>
            今月の支出登録はありません
         <% end %>
