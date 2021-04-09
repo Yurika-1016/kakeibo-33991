@@ -14,4 +14,20 @@ class MonthsController < ApplicationController
     @spending_months_health = @spending_months.where(spending_category_id: 10)
     @spending_months_other = @spending_months.where(spending_category_id: 11)
   end
+
+  def last_month
+    @last_month = Spending.where(created_at: Date.today.last_month.beginning_of_month..Date.today.last_month.end_of_month)
+    @last_month_month = @last_month.spending_category_for_graph
+    @last_month_food = @last_month.where(spending_category_id: 1)
+    @last_month_daily = @last_month.where(spending_category_id: 2)
+    @last_month_house = @last_month.where(spending_category_id: 3)
+    @last_month_infrastructure = @last_month.where(spending_category_id: 4)
+    @last_month_communication = @last_month.where(spending_category_id: 5)
+    @last_month_transport = @last_month.where(spending_category_id: 6)
+    @last_month_entertainment = @last_month.where(spending_category_id: 7)
+    @last_month_beauty = @last_month.where(spending_category_id: 8)
+    @last_month_self_investment = @last_month.where(spending_category_id: 9)
+    @last_month_health = @last_month.where(spending_category_id: 10)
+    @last_month_other = @last_month.where(spending_category_id: 11)
+  end
 end

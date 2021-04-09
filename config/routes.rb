@@ -7,5 +7,9 @@ Rails.application.routes.draw do
   resources :spendings, only:[:new, :create]
   resources :incomes, only:[:new, :create]
   resources :posts, only:[:index]
-  resources :months, only:[:index]
+  resources :months, only:[:index] do
+    collection do
+      get 'last_month'
+    end
+  end
 end
