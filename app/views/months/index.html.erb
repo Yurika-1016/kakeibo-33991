@@ -10,6 +10,9 @@
     <div class="month-contents-all-title">
       <%= "#{Date.today.month}月の月間分析"%>
     </div>
+    <div class="last-month-btn">
+      <%= link_to "<<#{Date.today.month-1}月の月間分析", last_month_months_path %>
+    </div>
     <div class="month-line_chart">
       <div class="month-line-graph-title">
       支出遷移
