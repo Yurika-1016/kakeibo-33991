@@ -1,0 +1,69 @@
+<%= render "share/header" %>
+
+<div class="post-main">
+  <div class="page-change-class">
+    <%= link_to "登録一覧", posts_path, class:"page-change-btn"%>
+    <%= link_to "月間分析", months_path, class:"page-change-btn"%>
+    <%= link_to "年間分析", years_path, class:"page-change-btn"%>
+  </div>
+  <div class="month-contents-all">
+    <div class="month-contents-all-title">
+      <%= "#{Date.today.year-1}年の年間分析"%>
+    </div>
+    <div class="this-month-btn">
+      <%= link_to "#{Date.today.year}年の年間分析>>", years_path %>
+    </div>
+    <div class="month-line_chart">
+      <div class="month-line-graph-title">
+      支出遷移
+      </div>
+      <div class="month-line_chart-content">
+        <% if @last_year.present?%>
+          <%= area_chart @last_year.group_by_day(:created_at).sum(:price), width: "800px", height: "200px", discrete: true, ytitle: "支出金額", thousands: "," %>
+        <% else %>
+           <%= "#{Date.today.year-1}年の支出登録はありません"%>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="month-contents-under">
+      <div class="month-line_chart">
+        <div class="month-graph-title">
+        支出内訳
+        </div>
+        <div class="month-pie_chart-content">
+          <% if @last_year.present?%>
+            <%= pie_chart @last_year_year %>
+          <% else %>
+            <%= "#{Date.today.year-1}年の支出登録はありません"%>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="month-analysis">
+        <div class="month-graph-title">
+        支出分析
+        </div>
+        <div class="month-analysis-contents">
+          <ul class="month-analysis-contents-list">
+            <li class="month-analysis-title"><%= "#{Date.today.year-1}年の支出合計:#{@last_year.sum(:price)}円" %></li>
+            <li class="month-analysis-content"><%= "食費:#{@last_year_food.sum(:price)}円" %></li>
+            <li class="month-analysis-content"><%= "日用品:#{@last_year_daily.sum(:price)}円" %></li>
+            <li class="month-analysis-content"><%= "家賃:#{@last_year_house.sum(:price)}円" %></li>
+            <li class="month-analysis-content"><%= "電気・ガス・水道:#{@last_year_infrastructure.sum(:price)}円" %></li>
+            <li class="month-analysis-content"><%= "通信費:#{@last_year_communication.sum(:price)}円" %></li>
+            <li class="month-analysis-content"><%= "交通費:#{@last_year_transport.sum(:price)}円" %></li>
+            <li class="month-analysis-content"><%= "交際費:#{@last_year_entertainment.sum(:price)}円" %></li>
+            <li class="month-analysis-content"><%= "美容・ファッション:#{@last_year_beauty.sum(:price)}円" %></li>
+            <li class="month-analysis-content"><%= "自己投資:#{@last_year_self_investment.sum(:price)}円" %></li>
+            <li class="month-analysis-content"><%= "病院:#{@last_year_health.sum(:price)}円" %></li>
+            <li class="month-analysis-content"><%= "その他:#{@last_year_other.sum(:price)}円" %></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<%= render "share/footer" %>

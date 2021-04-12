@@ -12,5 +12,9 @@ Rails.application.routes.draw do
       get 'last_month'
     end
   end
-  resources :years, only:[:index] 
+  resources :years, only:[:index] do
+    collection do
+      get 'last_year'
+    end
+  end
 end
