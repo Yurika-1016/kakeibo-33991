@@ -11,7 +11,7 @@
       <%= "#{Date.today.year}年の月間分析"%>
     </div>
     <div class="last-month-btn">
-      <%= link_to "<<#{Date.today.year-1}年の月間分析", "#" %>
+      <%= link_to "<<#{Date.today.year-1}年の月間分析", last_year_years_path %>
     </div>
     <div class="month-line_chart">
       <div class="month-line-graph-title">
@@ -21,7 +21,7 @@
         <% if @spending_years.present?%>
           <%= area_chart @spending_years.group_by_day(:created_at).sum(:price), width: "800px", height: "200px", discrete: true, ytitle: "支出金額", thousands: "," %>
         <% else %>
-           今年の支出登録はありません
+           <%= "#{Date.today.year}年の支出登録はありません"%>
         <% end %>
       </div>
     </div>
@@ -35,7 +35,7 @@
           <% if @spending_years.present?%>
             <%= pie_chart @spending_categories_year %>
           <% else %>
-            今年の支出登録はありません
+            <%= "#{Date.today.year}年の支出登録はありません"%>
           <% end %>
         </div>
       </div>
