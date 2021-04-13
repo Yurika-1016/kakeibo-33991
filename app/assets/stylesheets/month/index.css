@@ -15,7 +15,7 @@
 }
 
 .last-month-btn{
-  margin-left: 20%;
+  margin-left: 10%;
   margin-bottom: 20px;
 }
 
@@ -23,18 +23,24 @@
   margin-left: 80%;
   margin-bottom: 20px;
 }
-
+.month-line_chart{
+  display: block;
+  justify-content: center;
+  align-items: center;
+}
 .month-line-graph-title{
-  margin-left: 15%;
+  margin-left: 10%;
 }
 
 .month-line_chart-content{
-  margin: 0 15%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .month-contents-under{
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   margin-top: 60px;
 }
 

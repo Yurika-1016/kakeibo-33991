@@ -19,9 +19,9 @@
       </div>
       <div class="month-line_chart-content">
         <% if @spending_months.present?%>
-          <%= area_chart @spending_months.group_by_day(:created_at).sum(:price), width: "800px", height: "200px", discrete: true, ytitle: "支出金額", thousands: "," %>
+          <%= column_chart @spending_months.group_by_day(:created_at).sum(:price), width: "800px", height: "200px", discrete: true, ytitle: "支出金額", thousands: "," %>
         <% else %>
-           今月の支出登録はありません
+           <%= "#{Date.today.month}月の支出登録はありません" %>
         <% end %>
       </div>
     </div>
@@ -35,7 +35,7 @@
           <% if @spending_months.present?%>
             <%= pie_chart @spending_categories_month %>
           <% else %>
-            今月の支出登録はありません
+            <%= "#{Date.today.month}月の支出登録はありません" %>
           <% end %>
         </div>
       </div>
@@ -45,20 +45,43 @@
         支出分析
         </div>
         <div class="month-analysis-contents">
-          <ul class="month-analysis-contents-list">
-            <li class="month-analysis-title"><%= "#{Date.today.month}月の支出合計:#{@spending_months.sum(:price)}円" %></li>
-            <li class="month-analysis-content"><%= "食費:#{@spending_months_food.sum(:price)}円" %></li>
-            <li class="month-analysis-content"><%= "日用品:#{@spending_months_daily.sum(:price)}円" %></li>
-            <li class="month-analysis-content"><%= "家賃:#{@spending_months_house.sum(:price)}円" %></li>
-            <li class="month-analysis-content"><%= "電気・ガス・水道:#{@spending_months_infrastructure.sum(:price)}円" %></li>
-            <li class="month-analysis-content"><%= "通信費:#{@spending_months_communication.sum(:price)}円" %></li>
-            <li class="month-analysis-content"><%= "交通費:#{@spending_months_transport.sum(:price)}円" %></li>
-            <li class="month-analysis-content"><%= "交際費:#{@spending_months_entertainment.sum(:price)}円" %></li>
-            <li class="month-analysis-content"><%= "美容・ファッション:#{@spending_months_beauty.sum(:price)}円" %></li>
-            <li class="month-analysis-content"><%= "自己投資:#{@spending_months_self_investment.sum(:price)}円" %></li>
-            <li class="month-analysis-content"><%= "病院:#{@spending_months_health.sum(:price)}円" %></li>
-            <li class="month-analysis-content"><%= "その他:#{@spending_months_other.sum(:price)}円" %></li>
-          </ul>
+           <% if @spending_months.present? %>
+            <ul class="month-analysis-contents-list">
+              <li class="month-analysis-title"><%= "#{Date.today.month}月の支出合計:#{@spending_months.sum(:price)}円" %></li>
+              <li class="month-analysis-content"><%= "食費:#{@spending_months_food.sum(:price)}円" %></li>
+              <li class="month-analysis-content"><%= "日用品:#{@spending_months_daily.sum(:price)}円" %></li>
+              <li class="month-analysis-content"><%= "家賃:#{@spending_months_house.sum(:price)}円" %></li>
+              <li class="month-analysis-content"><%= "電気・ガス・水道:#{@spending_months_infrastructure.sum(:price)}円" %></li>
+              <li class="month-analysis-content"><%= "通信費:#{@spending_months_communication.sum(:price)}円" %></li>
+              <li class="month-analysis-content"><%= "交通費:#{@spending_months_transport.sum(:price)}円" %></li>
+              <li class="month-analysis-content"><%= "交際費:#{@spending_months_entertainment.sum(:price)}円" %></li>
+              <li class="month-analysis-content"><%= "美容・ファッション:#{@spending_months_beauty.sum(:price)}円" %></li>
+              <li class="month-analysis-content"><%= "自己投資:#{@spending_months_self_investment.sum(:price)}円" %></li>
+              <li class="month-analysis-content"><%= "病院:#{@spending_months_health.sum(:price)}円" %></li>
+              <li class="month-analysis-content"><%= "その他:#{@spending_months_other.sum(:price)}円" %></li>
+            </ul>
+          <% else %>
+            <%= "#{Date.today.month}月の支出登録はありません" %>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="month-analysis">
+        <div class="month-graph-title">
+        収入分析
+        </div>
+        <div class="month-analysis-contents">
+          <% if @income_months.present? %>
+            <ul class="month-analysis-contents-list">
+              <li class="month-analysis-title"><%= "#{Date.today.month}月の収入合計:#{@income_months.sum(:price)}円" %></li>
+              <li class="month-analysis-content"><%= "給与:#{@income_months_salary.sum(:price)}円" %></li>
+              <li class="month-analysis-content"><%= "賞与:#{@income_months_bonus.sum(:price)}円" %></li>
+              <li class="month-analysis-content"><%= "家賃:#{@income_months_supplementary_income.sum(:price)}円" %></li>
+              <li class="month-analysis-content"><%= "電気・ガス・水道:#{@income_months_extraordinary_income.sum(:price)}円" %></li>
+            </ul>
+          <% else %>
+            <%= "#{Date.today.month}月の収入登録はありません" %>
+          <% end %>
         </div>
       </div>
 
