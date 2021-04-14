@@ -66,7 +66,7 @@ https://kakeibo-33991.herokuapp.com/
 # 実装した機能についてのGIFと説明
 
 ## 家計簿一覧ページの説明
-![demo](https://gyazo.com/1ebc0e1f3a9b286cf8def345e485a5b7b/raw)
+![demo](https://gyazo.com/1ebc0e1f3a9b286cf8def345e485a5b7/raw)
 過去登録した支出・収入を一覧表示できます
 
 ## 月間分析ページの説明
@@ -75,7 +75,6 @@ https://kakeibo-33991.herokuapp.com/
 </br>食費、交際費等カテゴリー別の支出と月間総支出と総収入を確認できます
 
 ## 月間分析ページの説明
-![demo](https://gyazo.com/a0d7927fc7ac3f177b21e66b9d74a24d/raw)
 月間分析ページの年間版です（今年分と昨年分）
 
 
