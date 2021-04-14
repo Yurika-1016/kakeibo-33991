@@ -70,7 +70,7 @@ https://kakeibo-33991.herokuapp.com/
 過去登録した支出・収入を一覧表示できます
 
 ## 月間分析ページの説明
-![demo](https://gyazo.com/a0d7927fc7ac3f177b21e66b9d74a24d/raw)
+![demo](https://gyazo.com/c449d00b92082682df8e4e1b1881c4d8/raw)
 月間の日ごとの支出分析とカテゴリー別の支出分析ができます（今月分と先月分）
 </br>食費、交際費等カテゴリー別の支出と月間総支出と総収入を確認できます
 
